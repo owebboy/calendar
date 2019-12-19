@@ -1,0 +1,10 @@
+{
+    "name": "oliver/calendar",
+    "authors": [
+        {
+            "name": "Oliver Pope",
+            "email": "popeoliv@msu.edu"
+        }
+    ],
+    "require": {}
+}

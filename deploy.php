@@ -23,6 +23,7 @@ set('allow_anonymous_stats', false);
 // Hosts
 
 host('webtype.io')
+    ->user('webtypei')
     ->set('deploy_path', '~/www/websites/cal');    
     
 
