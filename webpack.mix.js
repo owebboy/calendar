@@ -11,6 +11,11 @@ let mix = require('laravel-mix');
  |
  */
 
+mix.options({
+  processCssUrls: true, // Process/optimize relative stylesheet url()'s. Set to false, if you don't want them touched.
+  purifyCss: true, // Remove unused CSS selectors.
+});
+
 mix.js('src/app.js', 'dist/').sass('src/app.scss', 'dist/');
 
 // Full API

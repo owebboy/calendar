@@ -66,12 +66,33 @@ const ui = {
         return dayLabel;
     },
 
-    getToday: (today) => {
-        let todayInCal = document.querySelector(`[data-date="${today.toLocaleDateString('en-us', { year: 'numeric', month: 'numeric', day: 'numeric'})}"]`)
+    getToday: (dom) => {
 
-        todayInCal.classList.add('today')
+        dom.classList.add('today')
 
-        return todayInCal
+        return dom
+    },
+
+    makeJournal: (date) => {
+
+        let dom = document.createElement('div')
+        dom.classList.add('journal')
+
+        let heading = document.createElement('div')
+        heading.classList.add('journal-heading')
+        heading.textContent = date.toLocaleDateString('en-us', {
+            month: 'long', 
+            day: 'numeric'
+        })
+        dom.appendChild(heading)
+
+        let editor = document.createElement('textarea')
+        editor.classList.add('journal-editor')
+        dom.appendChild(editor)
+
+        
+        
+        return dom
     }
  }
 
