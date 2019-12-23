@@ -17,3 +17,59 @@ html {
     text-transform: uppercase;
     letter-spacing: .5em;
 }
+
+.calendar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    margin: 1em 2%;
+}
+
+.month {
+    padding: 1.5em;
+    width: calc(100% * 1/3 - 3em);
+
+    @media screen and (max-width: 550px) {
+        width: calc(100% - 3em);
+    }
+
+    @media screen and (max-width: 900px) and (min-width: 550px)  {
+        width: calc(100% * 1/2 - 3em);
+    }
+
+   
+}
+
+.month-name {
+    text-align: left;
+    margin-bottom: 1em;
+}
+
+.month-months, .days-labels {
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.date, .offset-block, .label {
+    text-align: right;
+    padding: .8em .15em;
+    width: calc(100% * 1/7 - .3em);
+}
+
+.date {
+    cursor: pointer;
+}
+
+.label {
+    color: #555;
+}
+
+.offset-block {
+    color: transparent;
+}
+
+.today {
+    color: #0074D9;
+}

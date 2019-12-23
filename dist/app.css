@@ -464,6 +464,69 @@ html {
   color: #0074D9;
 }
 
+.calendar {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  flex-wrap: wrap;
+  margin: 1em 2%;
+}
+
+.month {
+  padding: 1.5em;
+  width: calc(100% * 1/3 - 3em);
+}
+
+@media screen and (max-width: 550px) {
+  .month {
+    width: calc(100% - 3em);
+  }
+}
+
+@media screen and (max-width: 900px) and (min-width: 550px) {
+  .month {
+    width: calc(100% * 1/2 - 3em);
+  }
+}
+
+.month-name {
+  text-align: left;
+  margin-bottom: 1em;
+}
+
+.month-months,
+.days-labels {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.date,
+.offset-block,
+.label {
+  text-align: right;
+  padding: 0.8em 0.15em;
+  width: calc(100% * 1/7 - .3em);
+}
+
+.date {
+  cursor: pointer;
+}
+
+.label {
+  color: #555;
+}
+
+.offset-block {
+  color: transparent;
+}
+
+.today {
+  color: #0074D9;
+}
+
 .journal {
   margin: 1em 20%;
 }
@@ -479,5 +542,25 @@ html {
   width: 100%;
   height: 100vh;
   padding-top: 1em;
+}
+
+header {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.current-year {
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 1em;
+}
+
+.next-year,
+.prev-year {
+  cursor: pointer;
 }
 

@@ -98,16 +98,15 @@ var State = __webpack_require__(/*! ./js/state */ "./src/js/state.js");
 var ui = __webpack_require__(/*! ./js/ui */ "./src/js/ui.js");
 
 var app = document.querySelector('#app');
-var head = document.querySelector('.head');
+var today = new Date();
 var state = new State(app);
+var header = ui.makeHeader(today);
+app.appendChild(header);
 
 function main() {
-  var cal = calendar();
+  var cal = calendar(today.getFullYear());
   state.addView('calendar', cal);
   state.changeView('calendar');
-  head.addEventListener('click', function (e) {
-    state.changeView('calendar');
-  });
 }
 
 function journal(date) {
@@ -115,23 +114,19 @@ function journal(date) {
   return dom;
 }
 
-function calendar() {
+function calendar(year) {
   var dom = document.createDocumentFragment();
   var cal = ui.makeCalendar();
-  var today = new Date();
-  var year = today.getFullYear();
-  var month = today.getMonth() + 1;
 
-  for (var i = month; i < 12 + month; i++) {
+  for (var i = 1; i < 13; i++) {
     var m = new Date(year, i, 0);
-
-    var _month = ui.makeMonth(m);
+    var month = ui.makeMonth(m);
 
     var _loop = function _loop(j) {
       var d = new Date(m.getFullYear(), m.getMonth(), j);
 
       if (j == 1) {
-        _month.childNodes[2].appendChild(ui.makeOffset(d.getDay()));
+        month.childNodes[2].appendChild(ui.makeOffset(d.getDay()));
       }
 
       var day = ui.makeDay(d);
@@ -144,15 +139,14 @@ function calendar() {
         if (!state.isView(key)) state.addView(key, ui.makeJournal(d));
         state.changeView(key);
       });
-
-      _month.childNodes[2].appendChild(day);
+      month.childNodes[2].appendChild(day);
     };
 
     for (var j = 1; j < m.getDate() + 1; j++) {
       _loop(j);
     }
 
-    cal.appendChild(_month);
+    cal.appendChild(month);
   }
 
   dom.appendChild(cal);
@@ -314,6 +308,28 @@ var ui = {
     editor.classList.add('journal-editor');
     dom.appendChild(editor);
     return dom;
+  },
+  makeHeader: function makeHeader(state, curDate) {
+    var header = document.createElement('header');
+    var yr = curDate.getFullYear();
+    var prevYear = document.createElement('div');
+    prevYear.classList.add('prev-year');
+    prevYear.textContent = yr - 1;
+    prevYear.addEventListener('click', function (e) {
+      var key = "year-".concat(yr - 1);
+      if (!state.isView(key)) state.addView(key, new Calendar(d));
+      state.changeView(key);
+    });
+    header.appendChild(prevYear);
+    var currentYear = document.createElement('div');
+    currentYear.classList.add('current-year');
+    currentYear.textContent = yr;
+    header.appendChild(currentYear);
+    var nextYear = document.createElement('div');
+    nextYear.classList.add('next-year');
+    nextYear.textContent = yr + 1;
+    header.appendChild(nextYear);
+    return header;
   }
 };
 module.exports = ui;

@@ -93,6 +93,36 @@ const ui = {
         
         
         return dom
+    },
+
+    makeHeader: (state, curDate) => {
+        let header = document.createElement('header')
+        let yr = curDate.getFullYear();
+
+        
+        let prevYear = document.createElement('div')
+        prevYear.classList.add('prev-year')
+        prevYear.textContent = yr - 1
+        prevYear.addEventListener('click', e => {
+            let key = `year-${yr - 1}`
+            if(!state.isView(key)) 
+                    state.addView(key, new Calendar(d))
+
+            state.changeView(key)
+        })
+        header.appendChild(prevYear)
+
+        let currentYear = document.createElement('div')
+        currentYear.classList.add('current-year')
+        currentYear.textContent = yr
+        header.appendChild(currentYear)
+
+        let nextYear = document.createElement('div')
+        nextYear.classList.add('next-year')
+        nextYear.textContent = yr + 1
+        header.appendChild(nextYear)
+
+        return header
     }
  }
 

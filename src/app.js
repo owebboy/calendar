@@ -2,22 +2,18 @@ const State = require('./js/state')
 const ui = require('./js/ui')
 
 const app = document.querySelector('#app')
-const head = document.querySelector('.head')
 
+let today = new Date()
 let state = new State(app)
 
-function main() {
-    
+let header = ui.makeHeader(today)
+app.appendChild(header)
 
-    let cal = calendar()
+function main() {
+    let cal = calendar(today.getFullYear())
 
     state.addView('calendar', cal)
-    state.changeView('calendar')
-
-    head.addEventListener('click', e=> {
-        state.changeView('calendar')
-    })
-    
+    state.changeView('calendar')  
 }
 
 function journal(date) {
@@ -28,21 +24,15 @@ function journal(date) {
     return dom
 }
 
-function calendar() {
+function calendar(year) {
     let dom = document.createDocumentFragment()
 
     let cal = ui.makeCalendar()
 
-    let today = new Date()
-
-    let year = today.getFullYear()
-    let month = today.getMonth()+1
-
-    for(let i = month; i < 12 + month; i++) {
+    for(let i = 1; i < 13; i++) {
         
         let m = new Date(year, i, 0)
         let month = ui.makeMonth(m)
-
 
         for(let j = 1; j < m.getDate()+1; j++) {
                 
@@ -63,7 +53,6 @@ function calendar() {
 
             month.childNodes[2].appendChild(day)
         }
-
 
         cal.appendChild(month)
     }

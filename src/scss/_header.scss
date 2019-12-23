@@ -1,0 +1,15 @@
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.current-year {
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 1em;
+}
+
+.next-year, .prev-year {
+    cursor: pointer;
+}
