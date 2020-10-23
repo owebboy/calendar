@@ -1,13 +1,38 @@
 header {
     display: flex;
+    flex-direction: column;
+    padding: 1em 0;
+}
+
+.header-years {
+    margin-bottom: 1em;
+}
+
+.header-months {
+    flex-wrap: wrap;
+}
+
+.header-years, .header-months {
+    display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.header-month {
+    padding: .5em 1em;
+    font-size: .9em;
+    transition: .2s all;
+    border-radius: 8px;
+    &:hover {
+        background-color: $link;
+        color: $bg;
+    }
 }
 
 .current-year {
     cursor: pointer;
     font-size: 2rem;
-    padding: 1em;
+    padding: 0 1em;
 }
 
 .next-year, .prev-year {

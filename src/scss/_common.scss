@@ -1,9 +1,10 @@
+
 html {
-    font-family: "Fira Sans", sans-serif;
+    font-family: "SF Pro Text","Helvetica Neue",-apple-system,BlinkMacSystemFont,"Helvetica","Segoe UI","Arial",sans-serif;
     font-size: 1.2em;
-    font-weight: 300;
-    background: #111;
-    color: #fff;
+    font-weight: 400;
+    background: $bg;
+    color: $fg;
 
     width: 100vw;
     height: 100vh;
@@ -56,14 +57,19 @@ html {
     text-align: right;
     padding: .8em .15em;
     width: calc(100% * 1/7 - .3em);
+    
 }
 
-.date {
+.date, .next-year, .prev-year {
     cursor: pointer;
+    transition: .2s all;
+    &:hover {
+        color: $link;
+    }
 }
 
 .label {
-    color: #555;
+    color: $label;
 }
 
 .offset-block {
@@ -71,5 +77,5 @@ html {
 }
 
 .today {
-    color: #0074D9;
+    color: $link;
 }
