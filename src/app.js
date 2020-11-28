@@ -1,21 +1,21 @@
-import "./app.scss";
-import Calendar from "./js/calendar";
-import Header from "./js/header";
+import './app.scss'
+import 'normalize.css'
+import Calendar from './js/calendar'
+import Header from './js/header'
 
-import State from "./js/state";
-import ui from "./js/ui";
+import State from './js/state'
 
-const headerDiv = document.querySelector("header")
-const app = document.querySelector("#app");
+const headerDiv = document.querySelector('header')
+const app = document.querySelector('#app')
 
-function main() {
-  let today = new Date();
-  let state = new State(app);
-  let header = new Header(state, headerDiv, today)
-  let cal = new Calendar(state, today.getFullYear());
+function main () {
+  const today = new Date()
+  const state = new State(app)
+  const cal = new Calendar(state, today.getFullYear())
+  window.header = new Header(state, headerDiv, today)
 
-  state.addView("calendar", cal);
-  state.changeView("calendar");
+  state.addView('calendar', cal)
+  state.changeView('calendar')
 }
 
-window.addEventListener("load", main);
+window.addEventListener('load', main)

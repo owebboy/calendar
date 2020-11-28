@@ -1,40 +1,43 @@
 header {
-    display: flex;
-    flex-direction: column;
-    padding: 1em 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0;
 }
 
 .header-years {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 .header-months {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.header-years, .header-months {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.header-years,
+.header-months {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-month {
-    padding: .5em 1em;
-    font-size: .9em;
-    transition: .2s all;
-    border-radius: 8px;
-    &:hover {
-        background-color: $link;
-        color: $bg;
-    }
+  padding: 0.5em 1em;
+  font-size: 0.9em;
+  border-radius: 8px;
+  transition: 0.2s all;
+
+  &:hover {
+    color: $bg;
+    background-color: $link;
+  }
 }
 
 .current-year {
-    cursor: pointer;
-    font-size: 2rem;
-    padding: 0 1em;
+  padding: 0 1em;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
-.next-year, .prev-year {
-    cursor: pointer;
+.next-year,
+.prev-year {
+  cursor: pointer;
 }

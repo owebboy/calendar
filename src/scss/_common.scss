@@ -1,40 +1,42 @@
 
 html {
-    font-family: "SF Pro Text","Helvetica Neue",-apple-system,BlinkMacSystemFont,"Helvetica","Segoe UI","Arial",sans-serif;
-    font-size: 1.2em;
-    font-weight: 400;
-    background: $bg;
-    color: $fg;
-
-    width: 100vw;
-    height: 100vh;
-    user-select: none;
+  width: 100vw;
+  height: 100vh;
+  color: $fg;
+  font-weight: 400;
+  font-size: 1.2em;
+  font-family: "SF Pro Text", "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Helvetica", "Segoe UI", "Arial", sans-serif;
+  background: $bg;
+  user-select: none;
 }
 
 .head {
-    font-size: 1.5em;
-    text-align: center;
-    padding-top: 1em;
-    text-transform: uppercase;
-    letter-spacing: .5em;
+  padding-top: 1em;
+  font-size: 1.5em;
+  letter-spacing: 0.5em;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.date, .next-year, .prev-year {
-    cursor: pointer;
-    transition: .2s all;
-    &:hover {
-        color: $link;
-    }
+.date,
+.next-year,
+.prev-year {
+  cursor: pointer;
+  transition: 0.2s all;
+
+  &:hover {
+    color: $link;
+  }
 }
 
 .label {
-    color: $label;
+  color: $label;
 }
 
 .offset-block {
-    color: transparent;
+  color: transparent;
 }
 
 .today {
-    color: $link;
+  color: $link;
 }
