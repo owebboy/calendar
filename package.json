@@ -34,7 +34,7 @@
     "sass-lint-auto-fix": "^0.21.2",
     "sass-loader": "^10.0.3",
     "style-loader": "^2.0.0",
-    "stylelint": "^13.8.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-find-new-rules": "^3.0.1",
